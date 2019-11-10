@@ -9,7 +9,7 @@ namespace TimeSheet.Models.Entities.Base
     public class EntityBase
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int ID { get; set; }
 
         [Timestamp]
         public byte[] TimeStamp { get; set; }
