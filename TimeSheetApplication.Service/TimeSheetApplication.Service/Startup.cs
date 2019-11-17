@@ -10,14 +10,23 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using TimeSheetAppRemodel.Initializers;
 
 namespace TimeSheetApplication.Service
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        private IHostingEnvironment _env;
+        public Startup(IConfiguration configuration, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             Configuration = configuration;
+            IConfigurationBuilder builder = new ConfigurationBuilder()
+                .SetBasePath(env.ContentRootPath)
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
+            builder.AddEnvironmentVariables();
+            Configuration = builder.Build();
+            _env = env;
         }
 
         public IConfiguration Configuration { get; }
@@ -40,6 +49,16 @@ namespace TimeSheetApplication.Service
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            if (env.IsDevelopment())
+            {
+                using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+                {
+                    TimeSheetDataInitializer.InitializeData(app.ApplicationServices);
+                }
+            }
+
+            app.UseCors("AllowAll");
 
             app.UseHttpsRedirection();
             app.UseMvc();
