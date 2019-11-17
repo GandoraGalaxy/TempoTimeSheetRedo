@@ -4,6 +4,7 @@ using System.Text;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using TimeSheet.Models.Entities;
+using Microsoft.AspNetCore.Identity;
 
 namespace TimeSheet.Models.Entities
 {
