@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using TimeSheet.Models.Entities.Base;
 using TimeSheetAppRemodel.EF;
+using TimeSheetAppRemodel.Repos.Base;
 
 namespace TimeSheetAppRemodel.Repos.Base
 {

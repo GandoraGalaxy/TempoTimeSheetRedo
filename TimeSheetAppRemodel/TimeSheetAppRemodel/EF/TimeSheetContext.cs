@@ -13,17 +13,17 @@ namespace TimeSheetAppRemodel.EF
 
         }
 
-        //public TimeSheetContext(DbContextOptions options) : base(options)
-        //{
-        //    try
-        //    {
-        //        Database.Migrate();
-        //    }
-        //    catch (Exception)
-        //    {
-        //        //Should do something meaningful here                
-        //    }
-        //}
+        public TimeSheetContext(DbContextOptions options) : base(options)
+        {
+            try
+            {
+                Database.Migrate();
+            }
+            catch (Exception)
+            {
+
+            }
+        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
