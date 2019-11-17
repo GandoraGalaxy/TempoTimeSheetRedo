@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TimeSheet.Models.Entities
 {
-    [Table("Users", Schema = "TimeSheetApp")]
+    [Table("Users", Schema = "TimeSheet")]
     public class User : IdentityUser
     {
         public User() : base()

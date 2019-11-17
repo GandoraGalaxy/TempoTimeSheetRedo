@@ -13,6 +13,18 @@ namespace TimeSheetAppRemodel.EF
 
         }
 
+        //public TimeSheetContext(DbContextOptions options) : base(options)
+        //{
+        //    try
+        //    {
+        //        Database.Migrate();
+        //    }
+        //    catch (Exception)
+        //    {
+        //        //Should do something meaningful here                
+        //    }
+        //}
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -22,5 +34,16 @@ namespace TimeSheetAppRemodel.EF
                     options => options.ExecutionStrategy(c => new ConnectionStrategy(c)));
             }
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+
+        }
+
+        public DbSet<Division> Divisions { get; set; }
+        public DbSet<Payroll> Payroll { get; set; }
+        public DbSet<TimeClock> TimeClock { get; set; }
+        public DbSet<Role> Roles { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }
