@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using TimeSheet.MVC.Models;
 
 namespace TimeSheet.MVC
 {
@@ -33,6 +35,9 @@ namespace TimeSheet.MVC
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddDbContext<TimeSheetMVCContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("TimeSheetMVCContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
