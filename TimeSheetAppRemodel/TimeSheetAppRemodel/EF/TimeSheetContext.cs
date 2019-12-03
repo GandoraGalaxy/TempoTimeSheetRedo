@@ -37,7 +37,10 @@ namespace TimeSheetAppRemodel.EF
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
+            modelBuilder.Entity<User>(entity =>
+            {
+                entity.HasIndex(e => e.Email).HasName("IX_Users").IsUnique();
+            });
         }
 
         public DbSet<Division> Divisions { get; set; }

@@ -5,9 +5,11 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using TimeSheet.Models.Entities;
 using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TimeSheet.Models.Entities
 {
+    [Table("Roles", Schema = "TimeSheet")]
     public class Role : IdentityRole
     {
         public Role() : base()

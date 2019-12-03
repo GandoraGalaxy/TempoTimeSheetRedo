@@ -6,7 +6,7 @@ using TimeSheet.Models.Entities.Base;
 
 namespace TimeSheet.Models.Entities
 {
-    [Table("Divisions", Schema = "TimeSheetApp")]
+    [Table("Divisions", Schema = "TimeSheet")]
     public class Division : EntityBase
     {
         public string Name { get; set; }
