@@ -12,6 +12,15 @@ namespace TimeSheetAppRemodel.Initializers
 {
     public class TimeSheetSampleData
     {
+        public static IEnumerable<Division> GetDivisions() => new List<Division>
+        {
+            new Division {Name = "Floor Walker"},
+            new Division {Name = "Retail"},
+            new Division {Name = "Pets"},
+            new Division {Name = "Cashier"},
+            new Division {Name = "Home Goods"}
+        };
+
         public static async Task Initialize(TimeSheetContext context,
                              UserManager<User> userManager,
                              RoleManager<Role> roleManager)

@@ -46,11 +46,11 @@ namespace TimeSheetAppRemodel.Initializers
         {
             try
             {
-                //if (!context.Divisions.Any())
-                //{
-                //    context.Divisions.AddRange(TimeSheetSampleData.GetDivisions);
-                //    context.SaveChanges();
-                //}
+                if (!context.Divisions.Any())
+                {
+                    context.Divisions.AddRange(TimeSheetSampleData.GetDivisions());
+                    context.SaveChanges();
+                }
                 //if (!context.TimeClock.Any())
                 //{
                 //    context.TimeClock.AddRange(
