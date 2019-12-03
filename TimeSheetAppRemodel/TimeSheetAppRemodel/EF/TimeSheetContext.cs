@@ -37,7 +37,25 @@ namespace TimeSheetAppRemodel.EF
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<User>(entity =>
+            {
+                entity.HasIndex(e => e.Id).HasName("Users").IsUnique();
+            });
 
+            modelBuilder.Entity<Division>(entity =>
+            {
+                entity.HasIndex(e => e.ID).HasName("Users").IsUnique();
+            });
+
+            modelBuilder.Entity<Payroll>(entity =>
+            {
+                entity.HasIndex(e => e.ID).HasName("Users").IsUnique();
+            });
+
+            modelBuilder.Entity<TimeClock>(entity =>
+            {
+                entity.HasIndex(e => e.ID).HasName("Users").IsUnique();
+            });
         }
 
         public DbSet<Division> Divisions { get; set; }
