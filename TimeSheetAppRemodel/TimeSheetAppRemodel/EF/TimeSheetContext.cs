@@ -39,7 +39,22 @@ namespace TimeSheetAppRemodel.EF
         {
             modelBuilder.Entity<User>(entity =>
             {
-                entity.HasIndex(e => e.Email).HasName("IX_Users").IsUnique();
+                entity.HasIndex(e => e.Id).HasName("Users").IsUnique();
+            });
+
+            modelBuilder.Entity<Division>(entity =>
+            {
+                entity.HasIndex(e => e.ID).HasName("Users").IsUnique();
+            });
+
+            modelBuilder.Entity<Payroll>(entity =>
+            {
+                entity.HasIndex(e => e.ID).HasName("Users").IsUnique();
+            });
+
+            modelBuilder.Entity<TimeClock>(entity =>
+            {
+                entity.HasIndex(e => e.ID).HasName("Users").IsUnique();
             });
         }
 

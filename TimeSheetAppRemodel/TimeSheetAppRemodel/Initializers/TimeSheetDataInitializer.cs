@@ -48,7 +48,7 @@ namespace TimeSheetAppRemodel.Initializers
             {
                 //if (!context.Divisions.Any())
                 //{
-                //    context.Divisions.AddRange(TimeSheetSampleData.GetDivisions());
+                //    context.Divisions.AddRange(TimeSheetSampleData.GetDivisions);
                 //    context.SaveChanges();
                 //}
                 //if (!context.TimeClock.Any())
