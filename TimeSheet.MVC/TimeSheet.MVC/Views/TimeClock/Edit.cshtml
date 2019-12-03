@@ -13,31 +13,29 @@
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="ID" />
-            <div class="form-group">
-                <label asp-for="ClockIn" class="control-label"></label>
-                <input asp-for="ClockIn" class="form-control" />
-                <span asp-validation-for="ClockIn" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="InLunch" class="control-label"></label>
-                <input asp-for="InLunch" class="form-control" />
-                <span asp-validation-for="InLunch" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="OutLunch" class="control-label"></label>
-                <input asp-for="OutLunch" class="form-control" />
-                <span asp-validation-for="OutLunch" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ClockOut" class="control-label"></label>
-                <input asp-for="ClockOut" class="form-control" />
-                <span asp-validation-for="ClockOut" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TotalHrs" class="control-label"></label>
-                <input asp-for="TotalHrs" class="form-control" />
-                <span asp-validation-for="TotalHrs" class="text-danger"></span>
-            </div>
+            @if (Model != null)
+            {
+                <div class="form-group">
+                    <label asp-for="InLunch" class="control-label"></label>
+                    <input asp-for="InLunch" class="form-control" />
+                    <span asp-validation-for="InLunch" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="OutLunch" class="control-label"></label>
+                    <input asp-for="OutLunch" class="form-control" />
+                    <span asp-validation-for="OutLunch" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ClockOut" class="control-label"></label>
+                    <input asp-for="ClockOut" class="form-control" />
+                    <span asp-validation-for="ClockOut" class="text-danger"></span>
+                </div>
+            }
+            @*<div class="form-group">
+                    <label asp-for="ClockIn" class="control-label"></label>
+                    <input asp-for="ClockIn" class="form-control" />
+                    <span asp-validation-for="ClockIn" class="text-danger"></span>
+                </div>*@
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>

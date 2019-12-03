@@ -2,7 +2,19 @@
     ViewData["Title"] = "Home Page";
 }
 
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <h1 class="display-4">Welcome @UserManager.GetUserAsync(User).Result.FirstName!<br /></h1>
+        <h4>Click the "Clock In/Out" to Clock in or Out</h4>
+    }
+    else
+    {
+        <h1 class="display-4">Welcome!<br /></h1>
+        <h4>Please Login to view your information</h4>
+    }
 </div>
