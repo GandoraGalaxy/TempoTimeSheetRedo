@@ -47,9 +47,9 @@ namespace TimeSheetAppRemodel.Initializers
         {
             try
             {
-                //if (!context.Div.Any())
+                //if (!context.Division.Any())
                 //{
-                //    context.Divisions.AddRange(StoreSampleData.GetCategories());
+                //    context.Divisions.AddRange(TimeSheetSampleData.GetCategories());
                 //    context.SaveChanges();
                 //}
                 //if (!context.Products.Any())
