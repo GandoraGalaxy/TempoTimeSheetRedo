@@ -50,11 +50,24 @@ namespace TimeSheetAppRemodel.EF
             modelBuilder.Entity<Payroll>(entity =>
             {
                 entity.HasIndex(e => e.ID).HasName("Users").IsUnique();
+
+                entity.Property(e => e.Salary).HasColumnType("money");
             });
 
             modelBuilder.Entity<TimeClock>(entity =>
             {
                 entity.HasIndex(e => e.ID).HasName("Users").IsUnique();
+
+                entity.Property(e => e.ClockIn).HasColumnType("datetime").HasDefaultValueSql("getdate()");
+
+                entity.Property(e => e.ClockOut).HasColumnType("datetime").HasDefaultValueSql("getdate()");
+
+                entity.Property(e => e.InLunch).HasColumnType("datetime").HasDefaultValueSql("getdate()");
+
+                entity.Property(e => e.OutLunch).HasColumnType("datetime").HasDefaultValueSql("getdate()");
+
+                entity.Property(e => e.TotalHours).HasColumnType("datetime").HasDefaultValueSql("getdate()")
+                    .HasComputedColumnSql("([ClockIn]+[ClockOut])-([InLunch]+[OutLunch])");
             });
         }
 

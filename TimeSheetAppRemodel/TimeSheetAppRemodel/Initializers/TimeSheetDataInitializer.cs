@@ -29,7 +29,7 @@ namespace TimeSheetAppRemodel.Initializers
         }
         public static void ExecuteDeleteSQL(TimeSheetContext context, string tableName)
         {
-            var sql = $"Delete from TimeSheetApp.{tableName}";
+            var sql = $"Delete from TimeSheet.{tableName}";
             context.Database.ExecuteSqlCommand(sql);
         }
         public static void ResetIdentity(TimeSheetContext context)
@@ -37,7 +37,7 @@ namespace TimeSheetAppRemodel.Initializers
             var tables = new[] {"Divisions","Users","Payroll","Roles","TimeClock"};
             foreach (var itm in tables)
             {
-                var sql = $"DBCC CHECKIDENT (\"TimeSheetApp.{itm}\", RESEED, -1);";
+                var sql = $"DBCC CHECKIDENT (\"TimeSheet.{itm}\", RESEED, -1);";
                 context.Database.ExecuteSqlCommand(sql);
             }
         }
