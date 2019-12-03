@@ -29,16 +29,15 @@ namespace TimeSheetAppRemodel.Initializers
         }
         public static void ExecuteDeleteSQL(TimeSheetContext context, string tableName)
         {
-            var sql = $"Delete from Store.{tableName}";
+            var sql = $"Delete from TimeSheetApp.{tableName}";
             context.Database.ExecuteSqlCommand(sql);
         }
         public static void ResetIdentity(TimeSheetContext context)
         {
-            var tables = new[] {"Categories","Customers",
-                "OrderDetails","Orders","Products","ShoppingCartRecords"};
+            var tables = new[] {"Divisions","Users","Payroll","Roles","TimeClock"};
             foreach (var itm in tables)
             {
-                var sql = $"DBCC CHECKIDENT (\"Store.{itm}\", RESEED, -1);";
+                var sql = $"DBCC CHECKIDENT (\"TimeSheetApp.{itm}\", RESEED, -1);";
                 context.Database.ExecuteSqlCommand(sql);
             }
         }
@@ -47,33 +46,32 @@ namespace TimeSheetAppRemodel.Initializers
         {
             try
             {
-                //if (!context.Division.Any())
+                //if (!context.Divisions.Any())
                 //{
-                //    context.Divisions.AddRange(TimeSheetSampleData.GetCategories());
+                //    context.Divisions.AddRange(TimeSheetSampleData.GetDivisions());
                 //    context.SaveChanges();
                 //}
-                //if (!context.Products.Any())
+                //if (!context.TimeClock.Any())
                 //{
-                //    context.Products.AddRange(
-                //        StoreSampleData.GetProducts(context.Categories.ToList()));
+                //    context.TimeClock.AddRange(
+                //        TimeSheetSampleData.GetTimeClock(context.TimeClock.ToList()));
                 //    context.SaveChanges();
                 //}
-                //if (!context.Customers.Any())
+                //if (!context.Users.Any())
                 //{
-                //    context.Customers.AddRange(
-                //        StoreSampleData.GetAllCustomerRecords(context));
+                //    context.Users.AddRange(
+                //        TimeSheetSampleData.GetAllUserRecords(context));
                 //    context.SaveChanges();
                 //}
-                //var customer = context.Customers.FirstOrDefault();
-                //if (!context.Orders.Any())
+                //if (!context.Payroll.Any())
                 //{
-                //    context.Orders.AddRange(StoreSampleData.GetOrders(customer, context));
+                //    context.Payroll.AddRange(TimeSheetSampleData.GetPayrolls(user, context));
                 //    context.SaveChanges();
                 //}
-                //if (!context.ShoppingCartRecords.Any())
+                //if (!context.Roles.Any())
                 //{
-                //    context.ShoppingCartRecords.AddRange(
-                //        StoreSampleData.GetCart(customer, context));
+                //    context.Roles.AddRange(
+                //        TimeSheetSampleData.GetRoles(user, context));
                 //    context.SaveChanges();
                 //}
             }
