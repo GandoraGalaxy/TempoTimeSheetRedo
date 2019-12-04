@@ -4,6 +4,7 @@ using System.Text;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Identity;
 using TimeSheetAppRemodel.EF;
 
 namespace TimeSheetAppRemodel.Initializers
@@ -60,18 +61,12 @@ namespace TimeSheetAppRemodel.Initializers
                 //if (!context.Users.Any())
                 //{
                 //    context.Users.AddRange(
-                //        TimeSheetSampleData.GetAllUserRecords(context));
+                //        TimeSheetSampleData.Initialize(context, ));
                 //    context.SaveChanges();
                 //}
                 //if (!context.Payroll.Any())
                 //{
                 //    context.Payroll.AddRange(TimeSheetSampleData.GetPayrolls(user, context));
-                //    context.SaveChanges();
-                //}
-                //if (!context.Roles.Any())
-                //{
-                //    context.Roles.AddRange(
-                //        TimeSheetSampleData.GetRoles(user, context));
                 //    context.SaveChanges();
                 //}
             }
