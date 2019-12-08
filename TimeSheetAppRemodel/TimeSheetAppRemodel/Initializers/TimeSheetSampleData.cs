@@ -21,6 +21,31 @@ namespace TimeSheetAppRemodel.Initializers
             new Division {Name = "Home Goods"}
         };
 
+        public static IEnumerable<Role> GetRoles() => new List<Role>
+        {
+            new Role {Description = "Admin"},
+            new Role {Description = "HR"},
+            new Role {Description = "Manager"},
+            new Role {Description = "Employee"},
+        };
+
+        public static IEnumerable<TimeClock> GetTime() => new List<TimeClock>
+        {
+            new TimeClock {ClockIn = new DateTime(2019, 12, 7)},
+            new TimeClock {ClockOut = new DateTime(2019, 12, 7)},
+            new TimeClock {InLunch = new DateTime(2019, 12, 7)},
+            new TimeClock {OutLunch = new DateTime(2019, 12, 7)},
+            new TimeClock {EmployeeID = new User()},
+        };
+
+        public static IEnumerable<Payroll> GetPayroll() => new List<Payroll>
+        {
+            new Payroll {Salary = 150.0M},
+            new Payroll {Salary = 75.0M},
+            new Payroll {Salary = 150.0M},
+            new Payroll {Salary = 250.0M},
+        };
+
         public static async Task Initialize(TimeSheetContext context,
                              UserManager<User> userManager,
                              RoleManager<Role> roleManager)
@@ -83,14 +108,14 @@ namespace TimeSheetAppRemodel.Initializers
                     await userManager.AddToRoleAsync(user, role1);
                 }
             }
-            if (await userManager.FindByNameAsync("ricky@develop.com") == null)
+            if (await userManager.FindByNameAsync("hr@develop.com") == null)
             {
                 var user = new User
                 {
-                    UserName = "ricky@develop.com",
-                    Email = "ricky@develop.com",
-                    FirstName = "Ricky",
-                    LastName = "Doe"
+                    UserName = "hr@develop.com",
+                    Email = "hr@develop.com",
+                    FirstName = "H",
+                    LastName = "R"
                 };
 
                 var result = await userManager.CreateAsync(user);
@@ -100,14 +125,14 @@ namespace TimeSheetAppRemodel.Initializers
                     await userManager.AddToRoleAsync(user, role2);
                 }
             }
-            if (await userManager.FindByNameAsync("jimmy@develop.com") == null)
+            if (await userManager.FindByNameAsync("manager@develop.com") == null)
             {
                 var user = new User
                 {
-                    UserName = "jimmy@develop.com",
-                    Email = "jimmy@develop.com",
-                    FirstName = "Jimmy",
-                    LastName = "Roberts"
+                    UserName = "manager@develop.com",
+                    Email = "manager@develop.com",
+                    FirstName = "MR",
+                    LastName = "Manager"
                 };
 
                 var result = await userManager.CreateAsync(user);
@@ -117,14 +142,14 @@ namespace TimeSheetAppRemodel.Initializers
                     await userManager.AddToRoleAsync(user, role3);
                 }
             }
-            if (await userManager.FindByNameAsync("billy@develop.com") == null)
+            if (await userManager.FindByNameAsync("employee@develop.com") == null)
             {
                 var user = new User
                 {
-                    UserName = "billy@develop.com",
-                    Email = "billy@develop.com",
-                    FirstName = "Billy",
-                    LastName = "Smith"
+                    UserName = "employee@develop.com",
+                    Email = "employee@develop.com",
+                    FirstName = "Employee",
+                    LastName = "Worker"
                 };
 
                 var result = await userManager.CreateAsync(user);

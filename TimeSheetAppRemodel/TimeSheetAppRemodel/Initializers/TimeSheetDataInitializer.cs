@@ -52,23 +52,21 @@ namespace TimeSheetAppRemodel.Initializers
                     context.Divisions.AddRange(TimeSheetSampleData.GetDivisions());
                     context.SaveChanges();
                 }
-                //if (!context.TimeClock.Any())
-                //{
-                //    context.TimeClock.AddRange(
-                //        TimeSheetSampleData.GetTimeClock(context.TimeClock.ToList()));
-                //    context.SaveChanges();
-                //}
-                //if (!context.Users.Any())
-                //{
-                //    context.Users.AddRange(
-                //        TimeSheetSampleData.Initialize(context, ));
-                //    context.SaveChanges();
-                //}
-                //if (!context.Payroll.Any())
-                //{
-                //    context.Payroll.AddRange(TimeSheetSampleData.GetPayrolls(user, context));
-                //    context.SaveChanges();
-                //}
+                if (!context.Roles.Any())
+                {
+                    context.Roles.AddRange(TimeSheetSampleData.GetRoles());
+                    context.SaveChanges();
+                }
+                if (!context.TimeClock.Any())
+                {
+                    context.TimeClock.AddRange(TimeSheetSampleData.GetTime());
+                    context.SaveChanges();
+                }
+                if (!context.Payroll.Any())
+                {
+                    context.Payroll.AddRange(TimeSheetSampleData.GetPayroll());
+                    context.SaveChanges();
+                }
             }
             catch (Exception ex)
             {
