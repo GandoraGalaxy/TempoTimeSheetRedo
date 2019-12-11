@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using TimeSheet.Models.Entities;
 
 namespace TimeSheetAppRemodel.EF
 {
-    public class TimeSheetContext : DbContext
+    public class TimeSheetContext : IdentityDbContext<User, Role, String>
     {
         public TimeSheetContext()
         {
@@ -37,6 +38,8 @@ namespace TimeSheetAppRemodel.EF
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<User>(entity =>
             {
                 entity.HasIndex(e => e.Id).HasName("Users").IsUnique();
@@ -44,12 +47,12 @@ namespace TimeSheetAppRemodel.EF
 
             modelBuilder.Entity<Division>(entity =>
             {
-                entity.HasIndex(e => e.ID).HasName("Users").IsUnique();
+                entity.HasIndex(e => e.ID).HasName("Divisions").IsUnique();
             });
 
             modelBuilder.Entity<Payroll>(entity =>
             {
-                entity.HasIndex(e => e.ID).HasName("Users").IsUnique();
+                entity.HasIndex(e => e.ID).HasName("Payroll").IsUnique();
 
                 entity.Property(e => e.Salary).HasColumnType("money");
             });
@@ -74,7 +77,7 @@ namespace TimeSheetAppRemodel.EF
         public DbSet<Division> Divisions { get; set; }
         public DbSet<Payroll> Payroll { get; set; }
         public DbSet<TimeClock> TimeClock { get; set; }
-        public DbSet<Role> Roles { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<Role> Role { get; set; }
+        public DbSet<User> User { get; set; }
     }
 }

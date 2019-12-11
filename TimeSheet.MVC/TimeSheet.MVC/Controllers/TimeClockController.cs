@@ -6,16 +6,18 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TimeSheet.MVC.Models;
+using TimeSheet.MVC.WebServiceAccess.Base;
+using Newtonsoft.Json;
 
 namespace TimeSheet.MVC.Controllers
 {
     public class TimeClockController : Controller
     {
         private readonly TimeSheetMVCContext _context;
-
-        public TimeClockController(TimeSheetMVCContext context)
+        private readonly IWebApiCalls _webApiCalls;
+        public TimeClockController(IWebApiCalls webApiCalls)
         {
-            _context = context;
+            _webApiCalls = webApiCalls;
         }
 
         // GET: TimeClock

@@ -7,6 +7,7 @@ using TimeSheetAppRemodel.EF;
 using TimeSheet.Models.Entities;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace TimeSheetAppRemodel.Initializers
 {
@@ -21,13 +22,13 @@ namespace TimeSheetAppRemodel.Initializers
             new Division {Name = "Home Goods"}
         };
 
-        public static IEnumerable<Role> GetRoles() => new List<Role>
-        {
-            new Role {Description = "Admin"},
-            new Role {Description = "HR"},
-            new Role {Description = "Manager"},
-            new Role {Description = "Employee"},
-        };
+        //public static IEnumerable<Role> GetRoles() => new List<Role>
+        //{
+        //    new Role {Description = "Admin"},
+        //    new Role {Description = "HR"},
+        //    new Role {Description = "Manager"},
+        //    new Role {Description = "Employee"},
+        //};
 
         public static IEnumerable<TimeClock> GetTime() => new List<TimeClock>
         {

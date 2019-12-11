@@ -6,16 +6,18 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TimeSheet.MVC.Models;
+using TimeSheet.MVC.WebServiceAccess.Base;
+using Newtonsoft.Json;
 
 namespace TimeSheet.MVC.Controllers
 {
     public class PayrollController : Controller
     {
         private readonly TimeSheetMVCContext _context;
-
-        public PayrollController(TimeSheetMVCContext context)
+        private readonly IWebApiCalls _webApiCalls;
+        public PayrollController(IWebApiCalls webApiCalls)
         {
-            _context = context;
+            _webApiCalls = webApiCalls;
         }
 
         // GET: Payroll

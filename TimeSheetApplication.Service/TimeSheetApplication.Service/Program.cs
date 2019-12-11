@@ -19,8 +19,8 @@ namespace TimeSheetApplication.Service
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-            //.UseKestrel()
-            //.UseUrls("http://*:40001/")
+            .UseKestrel()
+            .UseUrls("http://*:40001/")
                 .UseStartup<Startup>();
     }
 }

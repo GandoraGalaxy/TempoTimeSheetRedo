@@ -11,6 +11,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using TimeSheet.MVC.Models;
+using TimeSheet.MVC.Configuration;
+using TimeSheet.MVC.WebServiceAccess;
+using TimeSheet.MVC.WebServiceAccess.Base;
 
 namespace TimeSheet.MVC
 {
@@ -33,6 +36,8 @@ namespace TimeSheet.MVC
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddSingleton<IWebServiceLocator, WebServiceLocator>();
+            services.AddSingleton<IWebApiCalls, WebApiCalls>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 

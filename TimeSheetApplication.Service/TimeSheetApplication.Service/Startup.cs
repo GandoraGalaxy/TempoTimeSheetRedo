@@ -48,18 +48,19 @@ namespace TimeSheetApplication.Service
 
             services.AddDbContext<TimeSheetContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                    Configuration.GetConnectionString("TempoTimeSheet")));
             services.AddIdentity<User, Role>(
                options => options.Stores.MaxLengthForKeys = 128)
                .AddEntityFrameworkStores<TimeSheetContext>()
                .AddDefaultUI()
+               .AddRoles<Role>()
                .AddDefaultTokenProviders();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env,  TimeSheetContext context,
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env,
             RoleManager<Role> roleManager,
             UserManager<User> userManager)
         {
@@ -73,13 +74,15 @@ namespace TimeSheetApplication.Service
                 app.UseHsts();
             }
 
-            //if (env.IsDevelopment())
-            //{
-            //    using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
-            //    {
-            //        TimeSheetDataInitializer.InitializeData(app.ApplicationServices);
-            //    }
-            //}
+            if (env.IsDevelopment())
+            {
+                using (var serviceScope = app.ApplicationServices.CreateScope())
+                {
+                    var context = serviceScope.ServiceProvider.GetService<TimeSheetContext>();
+                    //TimeSheetSampleData.Initialize(app.ApplicationServices);
+                    //TimeSheetSampleData.Initialize(context, userManager, roleManager).Wait();
+                }
+            }
 
             app.UseCors("AllowAll");
 
@@ -87,7 +90,7 @@ namespace TimeSheetApplication.Service
             app.UseMvc();
 
             //SeedData.Initialize(context, userManager, roleManager).Wait();
-            TimeSheetSampleData.Initialize(context, userManager, roleManager).Wait();
+            
         }
     }
 }

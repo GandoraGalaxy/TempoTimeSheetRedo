@@ -19,6 +19,8 @@ namespace TimeSheet.MVC
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+            //.UseSetting("https_port", "3000")
+            .UseUrls("http://*:3000")
                 .UseStartup<Startup>();
     }
 }
