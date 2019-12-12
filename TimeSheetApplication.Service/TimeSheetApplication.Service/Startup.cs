@@ -49,6 +49,7 @@ namespace TimeSheetApplication.Service
             services.AddDbContext<TimeSheetContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("TempoTimeSheet")));
+            services.AddScoped<User>();
             services.AddIdentity<User, Role>(
                options => options.Stores.MaxLengthForKeys = 128)
                .AddEntityFrameworkStores<TimeSheetContext>()

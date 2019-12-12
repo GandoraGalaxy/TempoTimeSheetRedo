@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using TimeSheet.MVC.Models;
+using TimeSheet.Models.Entities;
 
 namespace TimeSheet.MVC.Models
 {
@@ -14,12 +15,12 @@ namespace TimeSheet.MVC.Models
         {
         }
 
-        public DbSet<TimeSheet.MVC.Models.TimeClock> TimeClock { get; set; }
+        public DbSet<TimeClock> TimeClock { get; set; }
 
-        public DbSet<TimeSheet.MVC.Models.Payroll> Payroll { get; set; }
+        public DbSet<Payroll> Payroll { get; set; }
 
-        public DbSet<TimeSheet.MVC.Models.Division> Division { get; set; }
+        public DbSet<Division> Division { get; set; }
 
-        public DbSet<TimeSheet.MVC.Models.Role> Role { get; set; }
+        public DbSet<Role> Role { get; set; }
     }
 }

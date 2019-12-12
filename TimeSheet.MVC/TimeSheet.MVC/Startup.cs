@@ -14,6 +14,7 @@ using TimeSheet.MVC.Models;
 using TimeSheet.MVC.Configuration;
 using TimeSheet.MVC.WebServiceAccess;
 using TimeSheet.MVC.WebServiceAccess.Base;
+using TimeSheet.Models.Entities;
 
 namespace TimeSheet.MVC
 {
@@ -40,9 +41,6 @@ namespace TimeSheet.MVC
             services.AddSingleton<IWebApiCalls, WebApiCalls>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-
-            services.AddDbContext<TimeSheetMVCContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("TimeSheetMVCContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TimeSheet.MVC.Models;
+using TimeSheet.Models.Entities;
 
 namespace TimeSheet.MVC.WebServiceAccess.Base
 {

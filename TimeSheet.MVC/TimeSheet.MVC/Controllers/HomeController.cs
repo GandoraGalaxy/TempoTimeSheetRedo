@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using TimeSheet.Models.Entities;
 using TimeSheet.MVC.Models;
 
 namespace TimeSheet.MVC.Controllers

@@ -5,9 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using TimeSheet.MVC.Models;
+using TimeSheet.Models.Entities;
 using TimeSheet.MVC.WebServiceAccess.Base;
 using Newtonsoft.Json;
+using TimeSheet.MVC.Models;
 
 namespace TimeSheet.MVC.Controllers
 {

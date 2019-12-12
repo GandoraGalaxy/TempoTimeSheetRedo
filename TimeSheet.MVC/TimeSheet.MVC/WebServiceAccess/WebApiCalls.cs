@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using TimeSheet.MVC.Configuration;
-using TimeSheet.MVC.Models;
+using TimeSheet.Models.Entities;
 using TimeSheet.MVC.WebServiceAccess.Base;
 
 namespace TimeSheet.MVC.WebServiceAccess

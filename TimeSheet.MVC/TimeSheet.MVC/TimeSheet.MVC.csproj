@@ -10,11 +10,14 @@
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
+    <PackageReference Include="TimeSheet.Models" Version="1.0.0" />
     <PackageReference Include="TimeSheetAppRemodel" Version="1.0.0" />
   </ItemGroup>
 
 
   <ItemGroup>
+    <Folder Include="Data\" />
+    <Folder Include="TimeSheet\" />
     <Folder Include="Validation\" />
   </ItemGroup>
 

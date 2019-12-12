@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using TimeSheet.MVC.Models;
 using TimeSheet.MVC.WebServiceAccess.Base;
 using Newtonsoft.Json;
+using TimeSheet.Models.Entities;
 
 namespace TimeSheet.MVC.Controllers
 {
