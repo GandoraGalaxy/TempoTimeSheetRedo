@@ -56,10 +56,10 @@ namespace TimeSheetApplication.Service
             //   .AddDefaultUI()
             //   .AddRoles<Role>()
             //   .AddDefaultTokenProviders();
-            services.AddDefaultIdentity<IdentityUser().AddRoles<IdentityRole>>()
-                 .AddDefaultTokenProviders()
+            services.AddDefaultIdentity <User().AddRoles<IdentityRole>().AddEntityFrameworkStores<TimeSheetContext>();
+                 //.AddDefaultTokenProviders()
                 //.AddDefaultUI(UIFramework.Bootstrap4)
-                .AddEntityFrameworkStores<TimeSheetContext>();
+                //.AddEntityFrameworkStores<TimeSheetContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
