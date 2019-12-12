@@ -7,7 +7,7 @@ using TimeSheet.Models.Entities;
 
 namespace TimeSheetAppRemodel.EF
 {
-    public class TimeSheetContext : IdentityDbContext<User, Role, String>
+    public class TimeSheetContext : IdentityDbContext<User, Role, string>
     {
         public TimeSheetContext()
         {

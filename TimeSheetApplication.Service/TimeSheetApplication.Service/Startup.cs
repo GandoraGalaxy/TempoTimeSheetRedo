@@ -50,12 +50,16 @@ namespace TimeSheetApplication.Service
                 options.UseSqlServer(
                     Configuration.GetConnectionString("TempoTimeSheet")));
             services.AddScoped<User>();
-            services.AddIdentity<User, Role>(
-               options => options.Stores.MaxLengthForKeys = 128)
-               .AddEntityFrameworkStores<TimeSheetContext>()
-               .AddDefaultUI()
-               .AddRoles<Role>()
-               .AddDefaultTokenProviders();
+            //services.AddIdentity<User, Role>(
+            //   options => options.Stores.MaxLengthForKeys = 128)
+            //   .AddEntityFrameworkStores<TimeSheetContext>()
+            //   .AddDefaultUI()
+            //   .AddRoles<Role>()
+            //   .AddDefaultTokenProviders();
+            services.AddDefaultIdentity<IdentityUser().AddRoles<IdentityRole>>()
+                 .AddDefaultTokenProviders()
+                //.AddDefaultUI(UIFramework.Bootstrap4)
+                .AddEntityFrameworkStores<TimeSheetContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
